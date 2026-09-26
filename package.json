@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-google_sheets",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Google Sheets MCP Pack",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-8a9c2d8b907ecd4eb8bb49f95ff57a88f8ccf3190b7e285464e6135c8590cea0",
-    "sourceCommit": "76aa8f5d9b5dc2f665563030647c68e661478864"
+    "sourceHash": "v1-6b88d0ba3d7a48204ca5a3b4f74fa05382960a4f8a95ac0eed4a6d48c8054a7e",
+    "sourceCommit": "1064560fd9dcd0d6fc2606298c2ba244b3a1fbeb"
   }
 }
