@@ -1,0 +1,135 @@
+[
+  {
+    "name": "sheets_read",
+    "description": "Read data from a Google Sheet range. Specify sheet name and range (e.g., 'A1:C10'). Returns rows as arrays of cell values.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "spreadsheet_id": {
+          "type": "string",
+          "description": "Spreadsheet ID (from the URL)"
+        },
+        "range": {
+          "type": "string",
+          "description": "A1 notation range (e.g., \"Sheet1!A1:D10\")"
+        }
+      },
+      "required": [
+        "spreadsheet_id",
+        "range"
+      ]
+    }
+  },
+  {
+    "name": "sheets_write",
+    "description": "Write data to a Google Sheet range, overwriting existing values. Specify sheet name, range (e.g., 'A1:C10'), and row data.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "spreadsheet_id": {
+          "type": "string",
+          "description": "Spreadsheet ID"
+        },
+        "range": {
+          "type": "string",
+          "description": "A1 notation range (e.g., \"Sheet1!A1\")"
+        },
+        "values": {
+          "type": "array",
+          "description": "Array of rows, each row is an array of cell values",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "value_input_option": {
+          "type": "string",
+          "enum": [
+            "USER_ENTERED",
+            "RAW"
+          ],
+          "description": "How to interpret input. USER_ENTERED (default) parses formulas/dates/numbers. RAW stores literal strings."
+        }
+      },
+      "required": [
+        "spreadsheet_id",
+        "range",
+        "values"
+      ]
+    }
+  },
+  {
+    "name": "sheets_append",
+    "description": "Append new rows to the end of a Google Sheet table. Specify sheet name and row data to add.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "spreadsheet_id": {
+          "type": "string",
+          "description": "Spreadsheet ID"
+        },
+        "range": {
+          "type": "string",
+          "description": "A1 notation range to append after (e.g., \"Sheet1!A1\")"
+        },
+        "values": {
+          "type": "array",
+          "description": "Array of rows to append",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "value_input_option": {
+          "type": "string",
+          "enum": [
+            "USER_ENTERED",
+            "RAW"
+          ],
+          "description": "How to interpret input. USER_ENTERED (default) parses formulas/dates/numbers. RAW stores literal strings."
+        }
+      },
+      "required": [
+        "spreadsheet_id",
+        "range",
+        "values"
+      ]
+    }
+  },
+  {
+    "name": "sheets_get_spreadsheet",
+    "description": "Explore a spreadsheet's structure. Returns title, sheet/tab names, and properties. Use before reading or writing data.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "spreadsheet_id": {
+          "type": "string",
+          "description": "Spreadsheet ID"
+        }
+      },
+      "required": [
+        "spreadsheet_id"
+      ]
+    }
+  },
+  {
+    "name": "sheets_create",
+    "description": "Create a new Google Spreadsheet. Optionally set title and initial sheet names. Returns spreadsheet ID and sharing URL.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title for the new spreadsheet"
+        }
+      },
+      "required": [
+        "title"
+      ]
+    }
+  }
+]
